@@ -1,0 +1,160 @@
+/*
+	WINAPI
+		:Windows Application Programming Interface 
+	운영체제가 응용프로그램 개발을 위해 제공하는 함수의 집합
+
+	핸들(Handle) : 윈도우 각 객체를 구분하는 인덱스 번호(정수) (제어하는놈)
+	ex) 비주얼 스튜디오, 메모장, 크롬창,... 모두 윈도우 객체
+	메시지(Message) : 윈도우에서 발생하는 이벤트를 운영체제가 윈도우에 전달하는 데이터 모음.
+	ex) 이벤트(확대/축소, 드래그, 클릭)가 발생하면 데이터 묶음으로 전달한다*/
+#include <windows.h>
+
+HINSTANCE g_hinstance; // 프로그램 인스턴스 핸들
+HWND g_hWnd;		   // 윈도우 핸들
+LPCWSTR g_lpszClassName = (LPCWSTR) TEXT("윈도우 API 사용하기"); // LPSTR 은 char형 포인터
+/*
+	1. 자동차 그리기 (함수화)
+	2. a, d키로 움직이기 
+*/
+void RenderRect(HDC hdc, int x, int y, int width, int height)
+{
+	Rectangle(hdc, 0, 0, 400, 100);
+}
+void RenderRectAtCenter(HDC hdc, int centerX, int centerY, int width, int height)
+{
+	Rectangle(hdc, 300, 50, 200, 400);
+}
+void RenderEllipse(HDC hdc, int x, int y, int width, int height)
+{
+	Ellipse(hdc, 0, 300, 100, 100);
+}
+void RenderEllipseAtCenter(HDC hdc, int centerX, int centerY, int width, int height)
+{
+	Ellipse(hdc, 300, 300, 200, 100);
+}
+void RenderCar(HDC hdc, int posX, int posY)
+{
+	RenderRect(hdc, posX, posY, 30, 100);
+	RenderRectAtCenter(hdc, posX, posY, 100, 100);
+	RenderRect(hdc, posX, posY, 30, 100);
+	RenderEllipse(hdc, posX, posY, 30, 100);
+	RenderEllipseAtCenter(hdc, posX, posY, 100, 100);
+}
+
+LRESULT CALLBACK WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam);
+
+int APIENTRY WinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, LPSTR lpszCmdParam, int nCmdShow)
+{
+	g_hinstance = hinstance; 
+	//윈도우를 생성하기위해 필요한 데이터 셋팅
+	WNDCLASS wndClass;
+	wndClass.cbClsExtra = 0;
+	wndClass.cbWndExtra = 0;
+	wndClass.hbrBackground = (HBRUSH)GetStockObject(WHITE_BRUSH); //색깔 지정
+	wndClass.hCursor = LoadCursor(g_hinstance, IDC_ARROW);
+	wndClass.hIcon = LoadIcon(g_hinstance, IDI_APPLICATION);
+	wndClass.hInstance = g_hinstance;
+	wndClass.lpfnWndProc = WndProc;		//함수의 이름은 메모리 주소이다. 함수는 같은클래스끼리 공유한다. //인스턴스에서 생성한 변수는 아님
+	wndClass.lpszMenuName = NULL;
+	wndClass.lpszClassName = g_lpszClassName;
+	wndClass.style = CS_HREDRAW | CS_VREDRAW; // |: 비트연산자 ||: 논리연산자
+
+	RegisterClass(&wndClass);
+
+	g_hWnd = CreateWindow(g_lpszClassName, g_lpszClassName,WS_OVERLAPPEDWINDOW, 50, 50, 1080, 720,
+				NULL, NULL, g_hinstance, NULL); //핸들을 저장
+	if (ShowWindow(g_hWnd, nCmdShow))
+	{
+		
+	}
+	else
+	{
+		
+	}
+
+	MSG message;
+	while (GetMessage(&message, 0, 0, 0))
+	{
+		TranslateMessage(&message);
+		DispatchMessage(&message);
+	}
+
+	return message.wParam; // 오류여부에 대한 값이 wParam에 전달
+
+}
+
+LRESULT WndProc(HWND hWnd, UINT iMessage, WPARAM wParam, LPARAM lParam)
+{
+	PAINTSTRUCT ps;
+	HDC hdc;
+
+	static int mousePosX = 0, mousePosY = 0; 
+	static int dan = 0;
+	wchar_t szText[128];
+	//static 변수: 함수 내에서 선언
+	//데이터 영역에 메모리가 할당(전역변수와 같음)
+	//프로그램 종료시 메모리 해제
+	//해당 함수안에서만 접근 가능
+	
+	switch (iMessage)
+	{
+	case WM_KEYDOWN:
+		switch (wParam)
+		{
+		case 'A': case 'a':
+			break;
+		case 'D': case 'd':
+			break;
+		}
+	case WM_LBUTTONDOWN:
+		dan--;
+		if (dan < 2) dan = 2;
+		break;
+	case WM_RBUTTONDOWN:
+		dan++;
+		if (dan > 2) dan = 9;
+		break;
+	case WM_MOUSEMOVE:
+		mousePosX = LOWORD(lParam); // 1111 0000 상위 4비트
+		mousePosY = HIWORD(lParam); // 0000 1111 하위 4비트 체크한다
+
+		InvalidateRect(g_hWnd, NULL, true);
+		break;
+	case WM_PAINT:
+		//TODO : 자체 로직 추가
+		hdc = BeginPaint(g_hWnd, &ps);
+
+		//그리기 위한 로직
+		TextOut(hdc, 20, 20, TEXT("Hello, World!"), strlen("Hello, World!"));
+		wsprintf(szText/* 문자열 공간 */, TEXT("Mouse X: %d, Y: %d")/* 형태 */,
+					mousePosX/* 값1, 값2, ...*/,mousePosY);
+		TextOut(hdc, 20, 60, szText, wcslen(szText));
+
+		//구구단
+		//9단까지 출력, 마우스 왼쪽 클릭 출력 단이 하나씩 줄어든다
+		// 오른쪽 클릭 출력 단이 하나씩 늘어난다.
+		for (int j = 2; j < dan; j++)
+		{
+			for (int i = 1; i <= 9; i++)
+			{
+				wsprintf(szText, TEXT("%d * %d = %d \n"), j, i, j * i);
+				TextOut(hdc, 20 + (j * 80), 100 + (i * 15), szText, wcslen(szText));
+			}
+		}
+
+		//동그라미, 네모
+		/*Ellipse(hdc, 0, 300, 200, 400);
+		Rectangle(hdc, 300, 300, 500, 400);*/
+		/*RenderEllipse(hdc,x,y,width, height);
+		RenderEllipseAtCenter(hdc,centerX,centerY,width, height);
+		RenderCar(hdc,posX,posY);*/
+		RenderCar(hdc, 30, 30);
+		EndPaint(g_hWnd, &ps);
+		break;
+	case WM_DESTROY:
+		PostQuitMessage(0);
+		break;
+	}
+	
+	return DefWindowProc(hWnd,iMessage,wParam,lParam);
+}
