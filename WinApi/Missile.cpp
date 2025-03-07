@@ -1,54 +1,61 @@
 #include "Missile.h"
 #include "CommonFunction.h"
+#include "config.h"
 
-void Missile::Init()
+void Missile::Init(POINT startPos, float direction)
 {
-	missilePos.x = 0;
-	missilePos.y = 0;
-	missileSize = 30;
-	missileSpeed = 3;	
-	rcMissile = GetRectAtCenter(missilePos.x, missilePos.y, missileSize, missileSize);
+	pos = startPos;
+	angle = direction;	
+	fSpeed = 10.0;
 }
 
 void Missile::Release()
 {
-
 }
 
 void Missile::Update()
 {
-	if(missilePos.y)
- 	missilePos.y -= 2 * missileSpeed;
+	if (isActive) 
+	{
+		return;
+	}
+
+	pos.x += cos(angle) * fSpeed;  //코사인 90은 0
+	pos.y -= sin(angle) * fSpeed;
+	
+	if (IsDisappear())
+	{
+		isActive = false;
+	}
 }
 
 void Missile::Render(HDC hdc)
 {
-	//미사일
-	RenderEllipseAtCenter(hdc, missilePos.x, missilePos.y, missileSize, missileSize);
-	/*MoveToEx(hdc, missilePos.x, missilePos.y, NULL);*/
+	if (!isActive)
+	{
+		return;
+	}
+
+	RenderEllipseAtCenter(hdc, pos.x, pos.y, size, size);
 }
 
-void Missile::Move()
+bool Missile::IsDisappear()
 {
-	//barrelsize * sin을 해서 y좌표 구하기
-
+	return (pos.x < 0 || pos.x > WINSIZE_X || pos.y < 0 || pos.y > WINSIZE_Y);
 }
 
-void Missile::Dead()
+bool Missile::GetActive()
 {
+	return isActive;
 }
 
-void Missile::SetPos(int posX, int posY)
+Missile::Missile() 
 {
-	pos.x = posX; 
-	pos.y = posY; 
-}
-
-Missile::Missile()
-{
+	isActive = true;
+	fSpeed = 10.0;
+	size = 30;
 }
 
 Missile::~Missile()
 {
 }
-
