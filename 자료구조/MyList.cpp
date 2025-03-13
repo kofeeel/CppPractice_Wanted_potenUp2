@@ -1,13 +1,13 @@
 #include "Mylist.h"
 
-MyNode::MyNode(int val)  //prev,next°¡ nullptrÀÌ°í µ¥ÀÌÅÍ¸¸ Æ÷ÇÔÇÏ´Â ³ëµå »ı¼º
+MyNode::MyNode(int val)  //prev,nextê°€ nullptrì´ê³  ë°ì´í„°ë§Œ í¬í•¨í•˜ëŠ” ë…¸ë“œ ìƒì„±
 {
 	prev = nullptr;
 	next = nullptr;
 	this->val = val;
 }
 
-MyNode::MyNode(MyNode* prev, int val, MyNode* next) //prev,next ,µ¥ÀÌÅÍ¸¦ Æ÷ÇÔÇÏ´Â ³ëµå »ı¼º
+MyNode::MyNode(MyNode* prev, int val, MyNode* next) //prev,next ,ë°ì´í„°ë¥¼ í¬í•¨í•˜ëŠ” ë…¸ë“œ ìƒì„±
 {
 	this->prev = prev;
 	this->val = val;
@@ -16,12 +16,12 @@ MyNode::MyNode(MyNode* prev, int val, MyNode* next) //prev,next ,µ¥ÀÌÅÍ¸¦ Æ÷ÇÔÇÏ
 
 MyNode* MyList::atNode(int at)
 {
-	if (at < 0 || at >= count)
+	if (at < 0 or at >= count)
 	{
 		return nullptr;
 	}
 
-	MyNode* current = frontNode; //ÇöÀç³ëµå¸¦ head¿¡¼­ ½ÃÀÛ
+	MyNode* current = frontNode; //í˜„ì¬ë…¸ë“œë¥¼ headì—ì„œ ì‹œì‘
 
 	for (int i = 0; i < at; i++)
 	{
@@ -39,22 +39,13 @@ MyList::MyList()
 
 MyList::~MyList()         
 {
-	MyNode* current = frontNode;
-	while (current)  //Æ÷ÀÎÅÍ°¡ nullptrÀÌ ¾Æ´Ï¸é
-	{
-		MyNode* nextNode = current->next; 
-		delete current;
-		current = nextNode;
-	}
-	frontNode = nullptr;
-	backNode = nullptr;
-	count = 0;
+	clear();
 }
 
 void MyList::push_front(int val)
 {
 	MyNode* newNode = new MyNode(val);
-	if (frontNode == nullptr) //³ëµå°¡ ºñ¾îÀÖÀ¸¸é
+	if (frontNode == nullptr) //ë…¸ë“œê°€ ë¹„ì–´ìˆìœ¼ë©´
 	{
 		frontNode = backNode = newNode;
 	}
@@ -65,13 +56,13 @@ void MyList::push_front(int val)
 		frontNode = newNode;
 	}
 	frontNode->prev = nullptr;
-	count++;  //³ëµå¿ä¼ÒÀÇ °³¼ö¸¦ 1¸¸Å­ ´Ã¸°´Ù.
+	count++;  //ë…¸ë“œìš”ì†Œì˜ ê°œìˆ˜ë¥¼ 1ë§Œí¼ ëŠ˜ë¦°ë‹¤.
 }
 
 void MyList::push_back(int val)
 {
 	MyNode* newNode = new MyNode(val);
-	if (backNode == nullptr) //³ëµå°¡ ºñ¾îÀÖÀ¸¸é
+	if (backNode == nullptr) //ë¦¬ìŠ¤íŠ¸ê°€ ë¹„ì–´ìˆìœ¼ë©´
 	{
 		frontNode = backNode = newNode;
 	}
@@ -98,9 +89,9 @@ void MyList::pop_back()
 	}
 	else
 	{
-		MyNode* temp = backNode; //ÇöÀç ¸¶Áö¸·³ëµå ÀúÀå
-		backNode = backNode->prev;  //tailÇÑÄ­µÚ·Î ÀÌµ¿	
-		backNode->next = nullptr; //tailÀÌ nullptr¸¦ °¡¸®Å°°ÔÇÔ
+		MyNode* temp = backNode; //í˜„ì¬ ë§ˆì§€ë§‰ë…¸ë“œ ì €ì¥
+		backNode = backNode->prev;  //tailí•œì¹¸ë’¤ë¡œ ì´ë™	
+		backNode->next = nullptr; //tailì´ nullptrë¥¼ ê°€ë¦¬í‚¤ê²Œí•¨
 		delete temp; 
 	}
 	count--;
@@ -119,25 +110,25 @@ void MyList::pop_front()
 	}
 	else
 	{
-		MyNode* temp = frontNode; //ÇöÀç Ã¹³ëµå ÀúÀå
-		frontNode = frontNode->next;  //headÇÑÄ­¾ÕÀ¸·Î ÀÌµ¿	
-		frontNode->prev = nullptr; //head°¡ nullptr¸¦ °¡¸®Å°°ÔÇÔ
+		MyNode* temp = frontNode; //í˜„ì¬ ì²«ë…¸ë“œ ì €ì¥
+		frontNode = frontNode->next;  //headí•œì¹¸ì•ìœ¼ë¡œ ì´ë™	
+		frontNode->prev = nullptr; //headê°€ nullptrë¥¼ ê°€ë¦¬í‚¤ê²Œí•¨
 		delete temp;
 	}
 	count--;
 }
 
-int& MyList::front()// ¸Ç ¾ÕÀÇ °ª ¹İÈ¯.
-{	// TODO: ¿©±â¿¡ return ¹®À» »ğÀÔÇÕ´Ï´Ù.
+int& MyList::front()// ë§¨ ì•ì˜ ê°’ ë°˜í™˜.
+{	// TODO: ì—¬ê¸°ì— return ë¬¸ì„ ì‚½ì…í•©ë‹ˆë‹¤.
 	if (frontNode != nullptr)
 	{
 		return frontNode->val;
 	}
 }
 
-int& MyList::back()// ¸Ç µÚÀÇ °ª ¹İÈ¯.
+int& MyList::back()// ë§¨ ë’¤ì˜ ê°’ ë°˜í™˜.
 {
-	// TODO: ¿©±â¿¡ return ¹®À» »ğÀÔÇÕ´Ï´Ù.
+	// TODO: ì—¬ê¸°ì— return ë¬¸ì„ ì‚½ì…í•©ë‹ˆë‹¤.
 	if (backNode != nullptr)
 	{
 		return backNode->val;
@@ -146,34 +137,120 @@ int& MyList::back()// ¸Ç µÚÀÇ °ª ¹İÈ¯.
 
 int MyList::at(int index)
 {
-	if (index > 0 || index < count) 
+	MyNode* node = atNode(index);  
+	if (node == nullptr)
 	{
-		MyNode* current = frontNode;
-		for (int i = 0; i < index; i++)
-		{
-			current = current->next;
-		}
-		return current->val; 
+		return -1; //ì˜ëª»ëœ indexë©´ -1 ë°˜í™˜
 	}
+	return node->val; 
 }
 
 void MyList::insert(int index, int value)
 {
+	if (index < 0 || index > count) 
+		return;
+
+	if (index == 0) //ë§¨ì•
+	{
+		push_front(value);
+		return;
+	}
+
+	if (index == count)  //ë§¨ë’¤
+	{
+		push_back(value);
+		return;
+	}
+
+	MyNode* prevNode = atNode(index - 1);  // ì‚½ì…ìœ„ì¹˜ ì°¾ê¸°
+	MyNode* nextNode = prevNode->next;
+
+	MyNode* newNode = new MyNode(prevNode, value, nextNode); 
+	prevNode->next = newNode;
+	nextNode->prev = newNode;
+
+	count++; 
 }
 
 void MyList::erase(int index, int value)
 {
+	MyNode* deleteNode = atNode(index);  
+
+	if (deleteNode == nullptr)  
+		return;
+
+	if (deleteNode == frontNode)  
+	{
+		pop_front();
+		return;
+	}
+
+	if (deleteNode == backNode)  //ë§ˆì§€ë§‰ ë…¸ë“œ ì‚­ì œ
+	{
+		pop_back();
+		return;
+	}
+
+	deleteNode->prev->next = deleteNode->next;  //ì´ì „ ë…¸ë“œì˜ next ìˆ˜ì •
+	deleteNode->next->prev = deleteNode->prev;  //ë‹¤ìŒ ë…¸ë“œì˜ prev ìˆ˜ì •
+
+	delete deleteNode;  
+	count--;  
 }
 
-void MyList::clear() // ¸®½ºÆ® ³»ºÎÀÇ ¸ğµç ³ëµå »èÁ¦
+void MyList::clear() // ë¦¬ìŠ¤íŠ¸ ë‚´ë¶€ì˜ ëª¨ë“  ë…¸ë“œ ì‚­ì œ
 {
+	MyNode* current = frontNode;
+	while (current)  //í¬ì¸í„°ê°€ nullptrì´ ì•„ë‹ˆë©´
+	{
+		MyNode* nextNode = current->next;
+		delete current;
+		current = nextNode;
+	}
+	frontNode = nullptr;
+	backNode = nullptr;
+	count = 0;
 }
 
-void MyList::print() // ¸®½ºÆ® °ªµéÀ» coutÀ¸·Î Ãâ·Â(¿¬½À¿ë ÇÔ¼ö)
+void MyList::print() // ë¦¬ìŠ¤íŠ¸ ê°’ë“¤ì„ coutìœ¼ë¡œ ì¶œë ¥(ì—°ìŠµìš© í•¨ìˆ˜)
 {
+	MyNode* current = frontNode;
+	while (current != nullptr)  // nullptrì„ ë§Œë‚  ë•Œê¹Œì§€ ìˆœíšŒ
+	{
+		std::cout << current->val << " ";
+		current = current->next;
+	}
+	std::cout << std::endl;
 }
 
-size_t MyList::size() // ¸®½ºÆ®¿¡ µé¾îÀÖ´Â µ¥ÀÌÅÍÀÇ ¼ö ¹İÈ¯.
+size_t MyList::size() // ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ìˆëŠ” ë°ì´í„°ì˜ ìˆ˜ ë°˜í™˜.
 {
 	return size_t();
+}
+
+void MyList::BubbleSort(MyList list, int size)
+{
+	
+	for (int i = 0; i < size; i++) 
+	{
+		for (int j = 0; j < (size - 1) - i; j++) //iê°€ 0ì¼ë•ŒëŠ” size - 1 ê¹Œì§€ ë¹„êµ
+		{
+			if (atNode(j) < atNode(j + 1))
+			{
+				Swap(atNode(j), atNode(j + 1));
+			}
+		}
+	}
+}
+
+//void MyList::MergeSort(MyList list, int size)
+//{
+//}
+
+void MyList::Swap(MyNode* a, MyNode* b)
+{
+	int temp;
+	temp = a->val;
+	a->val = b->val;
+	b->val = temp;
 }
