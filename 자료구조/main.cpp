@@ -3,8 +3,6 @@
 
 using namespace std;
 
-#include <list>
-
 int main()
 {
     MyList nums;
@@ -34,11 +32,15 @@ int main()
     cout << endl;
 
     nums.insert(5, 2025);
-     nums.insert(0, 1234);
-     nums.insert(nums.size(), 99999);
-     nums.insert(nums.size() - 1, 8888);
-     nums.print();
-     nums.BubbleSort();
-     nums.print();
-     return 0;
+    nums.insert(0, 1234);
+    nums.insert(nums.size(), 99999);
+    nums.insert(nums.size() - 1, 8888);
+    nums.print();
+    cout << "병합정렬 전: ";
+    nums.print();
+    nums.mergeSort();
+    cout << "병합정렬 후: ";
+    nums.print();
+
+    return 0;
 }
