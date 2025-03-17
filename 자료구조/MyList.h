@@ -1,5 +1,6 @@
 #pragma once
-
+#include <assert.h>
+#include <iostream>
 class MyNode
 {
 public:
@@ -7,21 +8,22 @@ public:
     int val;
     MyNode* next;
 
+    size_t count;
     MyNode(int val);
     MyNode(MyNode* prev, int val, MyNode* next);
 };
 
 /*
-    ¸¸µé¾î ³õÀº ¿¬°á¸®½ºÆ®´Â. ÃßÈÄ Á¤·Ä ±¸Çö¿¡µµ »ç¿ë ÇÒ ¿¹Á¤.
+    ë§Œë“¤ì–´ ë†“ì€ ì—°ê²°ë¦¬ìŠ¤íŠ¸ëŠ”. ì¶”í›„ ì •ë ¬ êµ¬í˜„ì—ë„ ì‚¬ìš© í•  ì˜ˆì •.
 
 */
-class MyList
+class MyList 
 {
 
 private:
     MyNode* frontNode; //head
     MyNode* backNode;  //tail
-    int count;      //¸®½ºÆ®¿¡ ÀúÀåµÈ ³ëµå °³¼ö
+    int count;      //ë¦¬ìŠ¤íŠ¸ì— ì €ì¥ëœ ë…¸ë“œ ê°œìˆ˜
 
     MyNode* atNode(int at);
 
@@ -35,15 +37,22 @@ public:
     void pop_back();
     void pop_front();
 
-    int& front();    // ¸Ç ¾ÕÀÇ °ª ¹İÈ¯.
-    int& back();        // ¸Ç µÚÀÇ °ª ¹İÈ¯.
+    int& front();    // ë§¨ ì•ì˜ ê°’ ë°˜í™˜.
+    int& back();        // ë§¨ ë’¤ì˜ ê°’ ë°˜í™˜.
     int at(int index);
 
     void insert(int index, int value);
     void erase(int index, int value);
-    void clear();    // ¸®½ºÆ® ³»ºÎÀÇ ¸ğµç ³ëµå »èÁ¦
+    void clear();    // ë¦¬ìŠ¤íŠ¸ ë‚´ë¶€ì˜ ëª¨ë“  ë…¸ë“œ ì‚­ì œ
 
-    void print();    // ¸®½ºÆ® °ªµéÀ» coutÀ¸·Î Ãâ·Â(¿¬½À¿ë ÇÔ¼ö)
-    size_t size();    // ¸®½ºÆ®¿¡ µé¾îÀÖ´Â µ¥ÀÌÅÍÀÇ ¼ö ¹İÈ¯.
+    void print();    // ë¦¬ìŠ¤íŠ¸ ê°’ë“¤ì„ coutìœ¼ë¡œ ì¶œë ¥(ì—°ìŠµìš© í•¨ìˆ˜)
+    size_t size();    // ë¦¬ìŠ¤íŠ¸ì— ë“¤ì–´ìˆëŠ” ë°ì´í„°ì˜ ìˆ˜ ë°˜í™˜.
 
+    void BubbleSort(); 
+    void MergeRight(); //MergeSort() head ~ middle - 1
+    void MergeLeft();  //MergeSort() middle  ~ tail 
+    void MergeSort();
+    void Swap(int& a ,int& b);
+    int Max(int x, int y);
 };
+
