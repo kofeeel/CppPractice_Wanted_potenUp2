@@ -68,7 +68,7 @@ void MyList::push_back(int val)
 	}
 	else
 	{
-		frontNode->next = newNode;
+		backNode->next = newNode;
 		newNode->prev = backNode;
 		backNode = newNode;
 	}
@@ -215,7 +215,7 @@ void MyList::clear() // 리스트 내부의 모든 노드 삭제
 void MyList::print() // 리스트 값들을 cout으로 출력(연습용 함수)
 {
 	MyNode* current = frontNode;
-	while (current != nullptr)  // nullptr을 만날 때까지 순회
+	while (current != nullptr)  
 	{
 		std::cout << current->val << " ";
 		current = current->next;
@@ -225,32 +225,64 @@ void MyList::print() // 리스트 값들을 cout으로 출력(연습용 함수)
 
 size_t MyList::size() // 리스트에 들어있는 데이터의 수 반환.
 {
-	return size_t();
+	return count;
 }
 
-void MyList::BubbleSort(MyList list, int size)
+void MyList::BubbleSort()
 {
-	
-	for (int i = 0; i < size; i++) 
+	for (int i = 0; i < size(); i++)            
 	{
-		for (int j = 0; j < (size - 1) - i; j++) //i가 0일때는 size - 1 까지 비교
-		{
-			if (atNode(j) < atNode(j + 1))
-			{
-				Swap(atNode(j), atNode(j + 1));
+		for (int j = 0; j < size() - 1 - i; j++)  
+		{								
+			MyNode* node1 = atNode(j);
+			MyNode* node2 = atNode(j + 1);
+			if (at(j) > at(j + 1))
+			{								  
+				Swap(node1->val, node2->val);
 			}
 		}
 	}
 }
 
-//void MyList::MergeSort(MyList list, int size)
-//{
-//}
-
-void MyList::Swap(MyNode* a, MyNode* b)
+void MyList::MergeRight()
 {
-	int temp;
-	temp = a->val;
-	a->val = b->val;
-	b->val = temp;
+	MyNode* current = frontNode;
+
+	for (int i = 0; i < (size() / 2) - 1; i++)
+	{
+		BubbleSort();
+	}
+
+}
+
+void MyList::MergeLeft()
+{
+	MyNode* current = atNode(size() / 2);
+
+	for (int i = size() / 2; i < size(); i++)
+	{
+		BubbleSort();
+	}
+}
+
+void MyList::MergeSort()
+{
+	
+	//
+}
+
+void MyList::Swap(int& a, int& b)
+{
+	int temp{ 0 };
+	temp = a;
+	a = b;
+	b = temp;
+}
+
+int MyList::Max(int x, int y)
+{
+	int x1{ x }, y1{ y };
+	
+	if (x1 > y1) { return x1; }
+	else { return y1; }
 }
