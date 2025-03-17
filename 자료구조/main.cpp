@@ -34,10 +34,11 @@ int main()
     cout << endl;
 
     nums.insert(5, 2025);
-    nums.insert(0, 1234);
-    nums.insert(nums.size(), 99999);
-    nums.insert(nums.size() - 1, 8888);
-    nums.print();
-
-    return 0;
+     nums.insert(0, 1234);
+     nums.insert(nums.size(), 99999);
+     nums.insert(nums.size() - 1, 8888);
+     nums.print();
+     nums.BubbleSort();
+     nums.print();
+     return 0;
 }
