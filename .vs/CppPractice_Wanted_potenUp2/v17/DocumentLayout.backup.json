@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\\uACE0\uD544\uADDC\\source\\repos\\CppPractice_Wanted_potenUp2\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\CppPractice_Wanted_potenUp2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\user\\source\\repos\\CppPractice_Wanted_potenUp2\\Datastructure\\Keylogger.cpp||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Datastructure\\Keylogger.cpp||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Keylogger.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\CppPractice_Wanted_potenUp2\\Datastructure\\Keylogger.cpp",
+              "RelativeDocumentMoniker": "Datastructure\\Keylogger.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\CppPractice_Wanted_potenUp2\\Datastructure\\Keylogger.cpp",
+              "RelativeToolTip": "Datastructure\\Keylogger.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvyAAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-26T11:53:30.505Z",
+              "EditorCaption": ""
             }
           ]
         }

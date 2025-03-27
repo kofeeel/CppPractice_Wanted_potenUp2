@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\source\\repos\\250327_galaga\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\Enemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\Enemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\Missile.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{6ABEA605-BD94-4C4E-9DCB-8EC658972AAA}|250304_WinAPI\\250304_WinAPI.vcxproj|solutionrelative:250304_WinAPI\\Missile.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\main.cpp",
+              "RelativeDocumentMoniker": "250304_WinAPI\\main.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\main.cpp",
+              "RelativeToolTip": "250304_WinAPI\\main.cpp",
+              "ViewState": "AgIAABkAAAAAAAAAAAAYwDAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T08:42:43.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Enemy.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.cpp",
+              "RelativeDocumentMoniker": "250304_WinAPI\\Enemy.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.cpp",
+              "RelativeToolTip": "250304_WinAPI\\Enemy.cpp",
+              "ViewState": "AgIAADkAAAAAAAAAAADwv1cAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T08:37:06.542Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Enemy.h",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.h",
+              "RelativeDocumentMoniker": "250304_WinAPI\\Enemy.h",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Enemy.h",
+              "RelativeToolTip": "250304_WinAPI\\Enemy.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAuwCgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-27T08:37:06.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Player.cpp",
+              "RelativeDocumentMoniker": "250304_WinAPI\\Player.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Player.cpp",
+              "RelativeToolTip": "250304_WinAPI\\Player.cpp",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T08:28:30.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Missile.cpp",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.cpp",
+              "RelativeDocumentMoniker": "250304_WinAPI\\Missile.cpp",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.cpp",
+              "RelativeToolTip": "250304_WinAPI\\Missile.cpp",
+              "ViewState": "AgIAABoAAAAAAAAAAAAcwCcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-27T07:33:26.293Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Missile.h",
+              "DocumentMoniker": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.h",
+              "RelativeDocumentMoniker": "250304_WinAPI\\Missile.h",
+              "ToolTip": "C:\\Users\\user\\source\\repos\\250327_galaga\\250304_WinAPI\\Missile.h",
+              "RelativeToolTip": "250304_WinAPI\\Missile.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-27T07:17:53.472Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# Windows 관련 불필요 파일
+Thumbs.db
+Desktop.ini
+
+# 컴파일된 실행 파일
+*.exe
+*.dll
+*.lib
+*.so
+*.a
+
+# 빌드 디렉터리
+/bin/
+/obj/
+/Build/
+Binaries/
+Intermediate/
+
+# Visual Studio 관련 파일
+.vs/
+*.vcxproj.user
+*.suo
+*.ncb
+*.sdf
+*.VC.db
+
+# Unreal Engine 관련 파일
+Saved/
+DerivedDataCache/
+*.uproject.sln

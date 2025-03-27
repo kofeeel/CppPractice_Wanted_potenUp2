@@ -1,0 +1,18 @@
+﻿  Enemy.cpp
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\CommonFunction.h(91,17): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\CommonFunction.h(93,16): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\CommonFunction.h(115,39): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\CommonFunction.h(116,39): warning C4244: '=': 'double'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  (소스 파일 'Enemy.cpp'을(를) 컴파일하는 중)
+  
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\Enemy.cpp(94,37): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\user\source\repos\250327_galaga\250304_WinAPI\Enemy.cpp(94,30): warning C4244: '인수': 'float'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  EnemyManager.cpp
+  코드를 생성하고 있습니다...
+  250304_WinAPI.vcxproj -> C:\Users\user\source\repos\250327_galaga\x64\Debug\250304_WinAPI.exe
