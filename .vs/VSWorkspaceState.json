@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WinApi"
+    "\\WinApi",
+    "\\WinApi\\250327_galaga",
+    "\\WinApi\\250327_galaga\\250304_WinAPI"
   ],
-  "SelectedNode": "\\.gitignore.txt",
+  "SelectedNode": "\\WinApi\\250327_galaga\\250304_WinAPI\\main.cpp",
   "PreviewInSolutionExplorer": false
 }
