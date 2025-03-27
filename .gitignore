@@ -1,22 +1,22 @@
-# Windows °ü·Ã ºÒÇÊ¿ä ÆÄÀÏ
+# Windows ê´€ë ¨ ë¶ˆí•„ìš” íŒŒì¼
 Thumbs.db
 Desktop.ini
 
-# ÄÄÆÄÀÏµÈ ½ÇÇà ÆÄÀÏ
+# ì»´íŒŒì¼ëœ ì‹¤í–‰ íŒŒì¼
 *.exe
 *.dll
 *.lib
 *.so
 *.a
 
-# ºôµå µğ·ºÅÍ¸®
+# ë¹Œë“œ ë””ë ‰í„°ë¦¬
 /bin/
 /obj/
 /Build/
 Binaries/
 Intermediate/
 
-# Visual Studio °ü·Ã ÆÄÀÏ
+# Visual Studio ê´€ë ¨ íŒŒì¼
 .vs/
 *.vcxproj.user
 *.suo
@@ -24,7 +24,7 @@ Intermediate/
 *.sdf
 *.VC.db
 
-# Unreal Engine °ü·Ã ÆÄÀÏ
+# Unreal Engine ê´€ë ¨ íŒŒì¼
 Saved/
 DerivedDataCache/
 *.uproject.sln
