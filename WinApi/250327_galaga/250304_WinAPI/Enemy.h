@@ -1,7 +1,6 @@
 #pragma once
 #include "GameObject.h"
 
-class Tank;
 class Image;
 class Player;
 class MissileManager;
@@ -17,7 +16,7 @@ private:
 	//Tank* target;
 	Player* target;
 	std::unique_ptr<Player*> target2;
-	Image* image;
+	Image* enemyImage;
 	int animationFrame;
 	int elapsedFrame;
 	float elapsedTime; 

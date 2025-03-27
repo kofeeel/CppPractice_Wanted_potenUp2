@@ -25,19 +25,9 @@ void Enemy::Init(float posX, float posY)
 	elapsedTime = 0.0f;
 	enemyMaxX = WINSIZE_X;
 
-	image = ImageManager::GetInstance()->AddFramedImage("Normal_Enemy", TEXT("Image/ufo.bmp"), 530, 32, 10, 1,
+	enemyImage = ImageManager::GetInstance()->AddFramedImage("Normal_Enemy", TEXT("Image/ufo.bmp"), 530, 32, 10, 1,
 		true, RGB(255, 0, 255));
 	moveRight = true;	
-	
-	missileManager = new MissileManager();
-	missileManager->Init();
-
-
-	missile = new Missile();
-	missile->Init();
-	missile->SetPos(pos);
-	missile->SetAngle(-135);
-	missile->SetIsActived(true);
 }
 
 void Enemy::Release()
@@ -56,10 +46,10 @@ void Enemy::Release()
 		missileManager = nullptr;
 	}
 
-	if (image)
+	if (enemyImage)
 	{
-		delete image;
-		image = nullptr;
+		delete enemyImage;
+		enemyImage = nullptr;
 	}
 }
 
@@ -75,7 +65,7 @@ void Enemy::Update()
 		if (elapsedTime > 0.03f)
 		{
 			animationFrame++;
-			if (animationFrame > image->getMaxFrameX())
+			if (animationFrame > enemyImage->getMaxFrameX())
 			{
 				animationFrame = 0;
 			}
@@ -89,43 +79,54 @@ void Enemy::Update()
 
 void Enemy::Render(HDC hdc)
 {
-	if (isAlive)
-	{	
-		image->FrameRender(hdc, pos.x, pos.y, animationFrame ,false);
-		//RenderRectAtCenter(hdc, pos.x, pos.y, size, size);
-	}
+	//if (isAlive)
+	//{	
+	//	enemyImage->FrameRender(hdc, pos.x, pos.y, animationFrame ,false);
+	//	//RenderRectAtCenter(hdc, pos.x, pos.y, size, size);
+	//}
 
-	if (missile)
-		missile->Render(hdc);
+	//if (missile)
+	//	missile->Render(hdc);
+
+	if (isAlive && enemyImage)
+	{
+		enemyImage->Render(hdc, pos.x, pos.y);
+	}
 }
 
 void Enemy::Move()
 {
-	float deltaTime = TimerManager::GetInstance()->GetDeltaTime();
-	float actualMoveSpeed = moveSpeed * deltaTime;
-	if (moveRight)
-	{
-		if (pos.x < enemyMaxX)
-		{
-			pos.x += moveSpeed; // actualMoveSpeed; //* TimerManager::GetInstance()->GetDeltaTime() °öÇÏ¸é ÀÌ¹ÌÁö »ç¶óÁü
-			if (pos.x >= enemyMaxX)
-			{
-				moveRight = false;
-			}
-		}
-	}
-	else
-	{
-		if (pos.x > 0)
-		{
-			pos.x -= moveSpeed; // actualMoveSpeed/* * TimerManager::GetInstance()->GetDeltaTime()*/;
-			if (pos.x <= 0)
-			{
-				moveRight = true;
-			}
-		}
-	}
+	//float deltaTime = TimerManager::GetInstance()->GetDeltaTime();
+	//float actualMoveSpeed = moveSpeed * deltaTime;
+	//if (moveRight)
+	//{
+	//	if (pos.x < enemyMaxX)
+	//	{
+	//		pos.x += moveSpeed; // actualMoveSpeed; //* TimerManager::GetInstance()->GetDeltaTime() °öÇÏ¸é ÀÌ¹ÌÁö »ç¶óÁü
+	//		if (pos.x >= enemyMaxX)
+	//		{
+	//			moveRight = false;
+	//		}
+	//	}
+	//}
+	//else
+	//{
+	//	if (pos.x > 0)
+	//	{
+	//		pos.x -= moveSpeed; // actualMoveSpeed/* * TimerManager::GetInstance()->GetDeltaTime()*/;
+	//		if (pos.x <= 0)
+	//		{
+	//			moveRight = true;
+	//		}
+	//	}
+	//}
 
+	pos.x += moveSpeed * TimerManager::GetInstance()->GetDeltaTime();
+
+	if (pos.x <= 0 || pos.x >= WINSIZE_X)
+	{
+		moveSpeed = -moveSpeed;
+	}
 }
 
 Enemy::Enemy()

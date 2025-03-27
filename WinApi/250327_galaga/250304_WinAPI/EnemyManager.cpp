@@ -1,5 +1,6 @@
 #include "EnemyManager.h"
 #include "Enemy.h"
+#include "TimerManager.h"
 
 //5. 미사일 매니저 구현 - 플레이어도 사용, 적 사용 
 //6. 적이 1마리씩 밑으로 돌격한다. 
@@ -21,9 +22,13 @@ void EnemyManager::Init()
 	//vEnemies.reserve(60); //메모리를 60개 만큼 미리 할당
 	//vEnemies.size();	//원소의 개수: 10
 	//vEnemies.resize(60); //원소의 개수: 60 {0(nullptr) 으로 초기화된 값 넣기} 
-	
-	vEnemies.resize(10);
+	enemyMissiles = new MissileManager();
+	enemyMissiles->Init();
 
+	shootInterval = 2.0f;
+	shootTimer = 0.0f;
+
+	vEnemies.resize(10);
 	for (int i = 0; i < 10; i++)
 	{
 		vEnemies[i] = new Enemy();
@@ -34,35 +39,73 @@ void EnemyManager::Init()
 
 void EnemyManager::Release()
 {
-	for (int i = 0; i < 10; i++)
+	if (enemyMissiles)
 	{
-		vEnemies[i]->Release();
-		delete vEnemies[i];
+		enemyMissiles->Release();
+		delete enemyMissiles;
+		enemyMissiles = nullptr;
+	}
+	for (auto enemy : vEnemies)
+	{
+		if (enemy)
+		{
+			enemy->Release();
+			delete enemy;
+		}
 	}
 	vEnemies.clear(); //원소 모두 제거, capacity 유지
 }
 
 void EnemyManager::Update()
 {
-	for (int i = 0; i < 10; i++)
+	/*for (int i = 0; i < 10; i++)
 	{
 		vEnemies[i]->Update();
+	}*/
+	Move();
+
+	if (enemyMissiles)
+	{
+		enemyMissiles->Update();
+	}
+
+	shootTimer += TimerManager::GetInstance()->GetDeltaTime();
+	if (shootTimer >= shootInterval)
+	{
+		Shoot();
+		shootTimer = 0.0f; 
 	}
 }
 
 void EnemyManager::Render(HDC hdc)
 {
-	for (int i = 0; i < vEnemies.size(); i++)
+	/*for (int i = 0; i < vEnemies.size(); i++)
 	{
 		vEnemies[i]->Render(hdc);
+	}*/
+
+	for (auto enemy : vEnemies)
+	{
+		if (enemy)
+		{
+			enemy->Render(hdc);
+		}
+	}
+
+	if (enemyMissiles)
+	{
+		enemyMissiles->Render(hdc);
 	}
 }
 
 void EnemyManager::Move()
 {
-	for (int i = 0; i < vEnemies.size(); i++)
+	for (auto enemy : vEnemies)
 	{
-		vEnemies[i]->Move();
+		if (enemy)
+		{
+			enemy->Move();
+		}
 	}
 }
 
@@ -72,5 +115,24 @@ void EnemyManager::AddEnemy(int size)
 	{
 		vEnemies.push_back(new Enemy());
 		vEnemies.back()->Init();
+	}
+}
+
+void EnemyManager::Shoot()
+{
+	for (auto enemy : vEnemies)
+	{
+		if (enemy && rand() % 2 == 0) 
+		{
+			FPOINT enemyPos = enemy->GetPos();
+
+			Missile* missile = enemyMissiles->AddMissile();
+			if (missile)
+			{
+				missile->SetPos(enemyPos);
+				missile->SetIsActived(true);
+				missile->SetAngle(90.0f); 
+			}
+		}
 	}
 }
