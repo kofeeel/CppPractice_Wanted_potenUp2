@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
+    "\\bin",
     "\\WinApi"
   ],
-  "SelectedNode": "\\.gitignore.txt",
+  "SelectedNode": "\\bin\\worbook.cpp",
   "PreviewInSolutionExplorer": false
 }
